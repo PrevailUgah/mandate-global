@@ -1,31 +1,60 @@
-import { Phone, Mail, MapPin, MessageSquare } from "lucide-react";
+"use client";
 
-export default function Contact() {
+import { Phone, Mail, MapPin, Send } from "lucide-react";
+
+export default function ContactPage() {
     return (
-        <div className="py-16 px-4 max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-                <h1 className="text-3xl font-bold text-mandate-dark">Get in Touch</h1>
-                <p className="text-slate-600 mt-2">Reach out for enquiries, partnerships, or viewing center locations.</p>
-            </div>
+        <div className="min-h-screen bg-sky-50/50 py-12 px-4 sm:px-6 lg:px-8 text-slate-800">
+            <div className="max-w-4xl mx-auto space-y-10">
 
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-                <a href="tel:+2349044620259" className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-mandate-blue transition">
-                    <Phone className="w-8 h-8 text-mandate-blue mx-auto mb-3" />
-                    <h3 className="font-bold text-slate-800">Phone</h3>
-                    <p className="text-sm text-slate-600 mt-1">+234 904 462 0259</p>
-                </a>
-
-                <a href="mailto:Onemandateglobal@gmail.com" className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-mandate-orange transition">
-                    <Mail className="w-8 h-8 text-mandate-orange mx-auto mb-3" />
-                    <h3 className="font-bold text-slate-800">Email</h3>
-                    <p className="text-sm text-slate-600 mt-1">Onemandateglobal@gmail.com</p>
-                </a>
-
-                <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                    <MapPin className="w-8 h-8 text-emerald-600 mx-auto mb-3" />
-                    <h3 className="font-bold text-slate-800">Location</h3>
-                    <p className="text-sm text-slate-600 mt-1">Kaduna, Nigeria</p>
+                <div className="text-center space-y-2">
+                    <span className="bg-sky-100 text-sky-800 border border-sky-300 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider inline-block">
+                        ★ Reach Out To Us
+                    </span>
+                    <h1 className="text-3xl font-black text-slate-900">Contact The Mandate Global</h1>
+                    <p className="text-slate-600 text-sm">Have questions about viewing centers, partnerships, or registration?</p>
                 </div>
+
+                <div className="grid md:grid-cols-3 gap-6">
+                    <a href="tel:+2349044620259" className="bg-white p-6 rounded-3xl border border-sky-100 shadow-md text-center hover:border-sky-500 transition block">
+                        <div className="w-12 h-12 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                            <Phone size={22} />
+                        </div>
+                        <h3 className="font-bold text-slate-900">Phone & WhatsApp</h3>
+                        <p className="text-xs text-slate-600 mt-1 font-semibold">+234 904 462 0259</p>
+                    </a>
+
+                    <a href="mailto:Onemandateglobal@gmail.com" className="bg-white p-6 rounded-3xl border border-orange-100 shadow-md text-center hover:border-orange-500 transition block">
+                        <div className="w-12 h-12 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                            <Mail size={22} />
+                        </div>
+                        <h3 className="font-bold text-slate-900">Email Address</h3>
+                        <p className="text-xs text-slate-600 mt-1 font-semibold">Onemandateglobal@gmail.com</p>
+                    </a>
+
+                    <div className="bg-white p-6 rounded-3xl border border-emerald-100 shadow-md text-center">
+                        <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-3">
+                            <MapPin size={22} />
+                        </div>
+                        <h3 className="font-bold text-slate-900">Location</h3>
+                        <p className="text-xs text-slate-600 mt-1 font-semibold">Kaduna, Nigeria</p>
+                    </div>
+                </div>
+
+                <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-md space-y-4">
+                    <h2 className="text-xl font-bold text-slate-900">Send Us a Direct Message</h2>
+                    <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
+                        <div className="grid sm:grid-cols-2 gap-4">
+                            <input required type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-sky-500 outline-none" />
+                            <input required type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-sky-500 outline-none" />
+                        </div>
+                        <textarea required rows={4} placeholder="Your message or enquiry..." className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-sky-500 outline-none"></textarea>
+                        <button type="submit" className="bg-sky-600 hover:bg-sky-700 text-white font-bold py-3.5 px-6 rounded-2xl shadow-md transition inline-flex items-center gap-2 text-sm">
+                            <Send size={16} /> Send Message
+                        </button>
+                    </form>
+                </div>
+
             </div>
         </div>
     );

@@ -1,0 +1,21 @@
+{
+    "name": "THE MANDATE GLOBAL",
+    "short_name": "MandateGlobal",
+    "description": "Equipped to Transform - Free Online Bible & Drawing Classes for Kids and Teens",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0B192C",
+    "theme_color": "#0284C7",
+    "icons": [
+        {
+            "src": "/logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

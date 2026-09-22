@@ -1,48 +1,68 @@
-import Image from "next/image";
-import { BookOpen, Target, Heart, Award } from "lucide-react";
+"use client";
 
-export default function About() {
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+
+export default function AboutPage() {
     return (
-        <div className="py-16 px-4 max-w-5xl mx-auto space-y-16">
-            {/* MISSION & VISION */}
-            <div className="text-center">
-                <span className="text-mandate-blue font-bold uppercase tracking-widest text-sm">About Us</span>
-                <h1 className="text-4xl font-extrabold text-mandate-dark mt-2">THE MANDATE GLOBAL</h1>
-                <p className="text-lg text-slate-600 max-w-2xl mx-auto mt-4">
-                    A non-profit Christian ministry focused on discipling children and teens through physical and online platforms.
-                </p>
-            </div>
+        <div className="min-h-screen bg-sky-50/50 py-12 px-4 sm:px-6 lg:px-8 text-slate-800">
+            <div className="max-w-5xl mx-auto space-y-12">
 
-            <div className="grid md:grid-cols-2 gap-8">
-                <div className="bg-mandate-light p-8 rounded-2xl border border-mandate-blue/20">
-                    <h2 className="text-2xl font-bold text-mandate-blue mb-3">Our Mission</h2>
-                    <p className="text-slate-700 leading-relaxed">
-                        To raise, reform, and transform youths into God's perfect will for their lives through biblical teaching, creative art, and godly mentorship.
+                <div className="text-center space-y-3">
+                    <span className="bg-amber-100 text-amber-800 border border-amber-300 px-4 py-1.5 rounded-full text-xs font-black tracking-wider uppercase inline-block">
+                        ★ About The Ministry
+                    </span>
+                    <h1 className="text-3xl sm:text-5xl font-black text-slate-900">THE MANDATE GLOBAL</h1>
+                    <p className="text-slate-600 text-base max-w-2xl mx-auto font-medium">
+                        A non-profit Christian ministry discipling children and teens through digital online learning and physical viewing centers.
                     </p>
                 </div>
 
-                <div className="bg-amber-50 p-8 rounded-2xl border border-mandate-gold">
-                    <h2 className="text-2xl font-bold text-amber-800 mb-3">Core Pillars</h2>
-                    <ul className="space-y-2 text-slate-700 font-medium">
-                        <li>✔ <strong>RAISE:</strong> Building strong biblical foundations.</li>
-                        <li>✔ <strong>REFORM:</strong> Cultivating creative skills and character.</li>
-                        <li>✔ <strong>TRANSFORM:</strong> Reaching unchurched kids online & offline.</li>
-                    </ul>
-                </div>
-            </div>
+                <div className="grid sm:grid-cols-3 gap-6">
+                    <motion.div whileHover={{ y: -5 }} className="bg-white p-6 rounded-3xl border border-sky-100 shadow-md space-y-2">
+                        <div className="w-12 h-12 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center font-black text-xl">1</div>
+                        <h3 className="text-xl font-bold text-slate-900">RAISE</h3>
+                        <p className="text-slate-600 text-sm">Building firm biblical foundations in the hearts of children through Superbook animations & scripture.</p>
+                    </motion.div>
 
-            {/* CONVENER PROFILE */}
-            <div className="bg-white p-8 rounded-2xl shadow-md border border-slate-200 flex flex-col md:flex-row gap-8 items-center">
-                <div className="w-40 h-40 bg-slate-200 rounded-full flex-shrink-0 flex items-center justify-center text-slate-500 font-bold border-4 border-mandate-gold">
-                    Bro Ezekiel
+                    <motion.div whileHover={{ y: -5 }} className="bg-white p-6 rounded-3xl border border-orange-100 shadow-md space-y-2">
+                        <div className="w-12 h-12 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center font-black text-xl">2</div>
+                        <h3 className="text-xl font-bold text-slate-900">REFORM</h3>
+                        <p className="text-slate-600 text-sm">Developing creative skills, artistic talents, and godly character that stand out in society.</p>
+                    </motion.div>
+
+                    <motion.div whileHover={{ y: -5 }} className="bg-white p-6 rounded-3xl border border-amber-100 shadow-md space-y-2">
+                        <div className="w-12 h-12 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center font-black text-xl">3</div>
+                        <h3 className="text-xl font-bold text-slate-900">TRANSFORM</h3>
+                        <p className="text-slate-600 text-sm">Reaching unchurched kids and empowering 200+ youths into God's perfect will for their lives.</p>
+                    </motion.div>
                 </div>
-                <div>
-                    <span className="text-xs font-bold text-mandate-orange uppercase tracking-wider">Convener</span>
-                    <h3 className="text-2xl font-bold text-mandate-dark mt-1">Ezekiel Humphery Aaron</h3>
-                    <p className="text-slate-600 mt-2 leading-relaxed">
-                        Passionate about discipling the next generation through digital innovation, art, and the uncompromised Word of God. Leading the vision to raise 200+ children equipped to transform their communities.
-                    </p>
+
+                <div className="bg-white rounded-3xl p-8 shadow-lg border border-slate-100 grid md:grid-cols-3 gap-8 items-center">
+                    <div className="flex flex-col items-center text-center">
+                        <div className="w-36 h-36 rounded-full bg-gradient-to-tr from-sky-600 to-amber-400 p-1.5 shadow-md mb-3">
+                            <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-amber-300 font-black text-2xl">
+                                EHA
+                            </div>
+                        </div>
+                        <h3 className="font-extrabold text-slate-900 text-lg">Ezekiel Humphery Aaron</h3>
+                        <span className="text-xs font-bold text-sky-600 uppercase">Convener & Leader</span>
+                    </div>
+
+                    <div className="md:col-span-2 space-y-4 text-slate-600 text-sm leading-relaxed">
+                        <h2 className="text-2xl font-black text-slate-900">A Vision for the Next Generation</h2>
+                        <p>
+                            Under the leadership of Convener Ezekiel Humphery Aaron, <strong>THE MANDATE GLOBAL</strong> bridges faith and creative art. By partnering with visionary platforms like Superbook Nigeria and MALAK, we provide children and teens with safe, spiritually uplifting environment online and offline.
+                        </p>
+                        <div className="pt-2">
+                            <Link href="/register" className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-2xl transition shadow-md">
+                                Register a Child Now <ArrowRight size={18} />
+                            </Link>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
     );

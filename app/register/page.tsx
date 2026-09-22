@@ -1,9 +1,10 @@
 "use client";
+
 import { useState } from "react";
 import confetti from "canvas-confetti";
-import { CheckCircle, Send, MessageCircle } from "lucide-react";
+import { CheckCircle2, Send, MessageCircle } from "lucide-react";
 
-export default function Register() {
+export default function RegisterPage() {
     const [submitted, setSubmitted] = useState(false);
     const [formData, setFormData] = useState({
         parentName: "",
@@ -11,108 +12,136 @@ export default function Register() {
         phone: "",
         childName: "",
         age: "8-12",
-        track: "Both Bible & Drawing",
+        attendanceType: "Google Meet (Online)",
     });
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+        confetti({ particleCount: 120, spread: 80, origin: { y: 0.6 } });
         setSubmitted(true);
     };
 
     return (
-        <div className="py-12 px-4 max-w-2xl mx-auto">
-            <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold text-mandate-dark">Free Registration</h1>
-                <p className="text-slate-600 mt-2">MANDATE GLOBAL Kids & Teens Discipleship Club</p>
-            </div>
+        <div className="min-h-screen bg-sky-50/50 py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-xl mx-auto">
 
-            {submitted ? (
-                <div className="bg-emerald-50 border border-emerald-200 p-8 rounded-2xl text-center space-y-6">
-                    <CheckCircle className="w-16 h-16 text-emerald-600 mx-auto" />
-                    <h2 className="text-2xl font-bold text-emerald-900">Registration Successful!</h2>
-                    <p className="text-emerald-800">
-                        Thank you, <strong>{formData.parentName}</strong>. We are excited to have <strong>{formData.childName}</strong> join us!
-                    </p>
+                <div className="text-center space-y-2 mb-8">
+                    <span className="bg-emerald-100 text-emerald-800 border border-emerald-300 px-4 py-1 rounded-full text-xs font-black uppercase tracking-wider inline-block">
+                        ★ 100% Free Registration
+                    </span>
+                    <h1 className="text-3xl font-black text-slate-900">Kids & Teens Discipleship Club</h1>
+                    <p className="text-slate-600 text-sm">Theme: "BE NOT CONFORMED" (Romans 12:2)</p>
+                </div>
 
-                    <div className="flex flex-col gap-3 pt-4">
+                {submitted ? (
+                    <div className="bg-white rounded-3xl p-8 border border-emerald-200 shadow-xl text-center space-y-6">
+                        <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                            <CheckCircle2 size={48} />
+                        </div>
+
+                        <div className="space-y-2">
+                            <h2 className="text-2xl font-black text-slate-900">Registration Complete!</h2>
+                            <p className="text-slate-600 text-sm">
+                                Thank you, <strong>{formData.parentName}</strong>! We are excited to welcome <strong>{formData.childName}</strong> to The Mandate Global.
+                            </p>
+                        </div>
+
+                        <div className="bg-sky-50 p-4 rounded-2xl text-left text-xs space-y-1 border border-sky-100 text-slate-700">
+                            <p><strong>Attendance:</strong> {formData.attendanceType}</p>
+                            <p><strong>Age Group:</strong> {formData.age} years</p>
+                            <p><strong>Duration:</strong> 4 Months starting 2nd Week of Jan 2027</p>
+                        </div>
+
                         <a
-                            href={`https://wa.me/2349044620259?text=Hello,%20I%20have%20registered%20${encodeURIComponent(formData.childName)}%20for%20The%20Mandate%20Global%20Classes.`}
+                            href={`https://wa.me/2349044620259?text=Hello%20Bro%20Ezekiel,%20I%20have%20registered%20${encodeURIComponent(formData.childName)}%20for%20The%20Mandate%20Global%20Discipleship%20Club.`}
                             target="_blank"
                             rel="noreferrer"
-                            className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-6 rounded-xl flex items-center justify-center gap-2"
+                            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 rounded-2xl flex items-center justify-center gap-2 shadow-lg transition"
                         >
-                            <MessageCircle className="w-5 h-5" /> Confirm via WhatsApp (+2349044620259)
+                            <MessageCircle size={20} /> Confirm Registration on WhatsApp
                         </a>
                     </div>
-                </div>
-            ) : (
-                <form onSubmit={handleSubmit} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 space-y-6">
-                    <div>
-                        <label className="block text-sm font-semibold text-slate-700 mb-1">Parent / Guardian Name</label>
-                        <input
-                            required
-                            type="text"
-                            className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-mandate-blue outline-none"
-                            placeholder="Full Name"
-                            onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
-                        />
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 gap-4">
+                ) : (
+                    <form onSubmit={handleSubmit} className="bg-white rounded-3xl p-8 shadow-xl border border-sky-100 space-y-5">
                         <div>
-                            <label className="block text-sm font-semibold text-slate-700 mb-1">Email Address</label>
-                            <input
-                                required
-                                type="email"
-                                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-mandate-blue outline-none"
-                                placeholder="name@gmail.com"
-                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-semibold text-slate-700 mb-1">WhatsApp Phone Number</label>
-                            <input
-                                required
-                                type="tel"
-                                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-mandate-blue outline-none"
-                                placeholder="+234..."
-                                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                            />
-                        </div>
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 gap-4">
-                        <div>
-                            <label className="block text-sm font-semibold text-slate-700 mb-1">Child's Name</label>
+                            <label className="block text-xs font-extrabold text-slate-700 uppercase mb-1">Parent / Guardian Name</label>
                             <input
                                 required
                                 type="text"
-                                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-mandate-blue outline-none"
-                                placeholder="Child's Full Name"
-                                onChange={(e) => setFormData({ ...formData, childName: e.target.value })}
+                                placeholder="e.g. Mary Aaron"
+                                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 outline-none text-sm"
+                                onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
                             />
                         </div>
+
+                        <div className="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label className="block text-xs font-extrabold text-slate-700 uppercase mb-1">Email Address</label>
+                                <input
+                                    required
+                                    type="email"
+                                    placeholder="name@email.com"
+                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 outline-none text-sm"
+                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-extrabold text-slate-700 uppercase mb-1">WhatsApp Phone</label>
+                                <input
+                                    required
+                                    type="tel"
+                                    placeholder="+2349044620259"
+                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 outline-none text-sm"
+                                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label className="block text-xs font-extrabold text-slate-700 uppercase mb-1">Child's Name</label>
+                                <input
+                                    required
+                                    type="text"
+                                    placeholder="Child's Full Name"
+                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 outline-none text-sm"
+                                    onChange={(e) => setFormData({ ...formData, childName: e.target.value })}
+                                />
+                            </div>
+
+                            <div>
+                                <label className="block text-xs font-extrabold text-slate-700 uppercase mb-1">Age Bracket</label>
+                                <select
+                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 outline-none text-sm bg-white"
+                                    onChange={(e) => setFormData({ ...formData, age: e.target.value })}
+                                >
+                                    <option value="8-12">8 – 12 Years Old</option>
+                                    <option value="13-18">13 – 18 Years Old</option>
+                                </select>
+                            </div>
+                        </div>
+
                         <div>
-                            <label className="block text-sm font-semibold text-slate-700 mb-1">Age Bracket</label>
+                            <label className="block text-xs font-extrabold text-slate-700 uppercase mb-1">Preferred Platform</label>
                             <select
-                                className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-mandate-blue outline-none bg-white"
-                                onChange={(e) => setFormData({ ...formData, age: e.target.value })}
+                                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-sky-500 outline-none text-sm bg-white"
+                                onChange={(e) => setFormData({ ...formData, attendanceType: e.target.value })}
                             >
-                                <option value="8-12">8 – 12 years</option>
-                                <option value="13-18">13 – 18 years</option>
+                                <option value="Google Meet (Online)">Google Meet (Online)</option>
+                                <option value="Physical Viewing Center (Kaduna)">Physical Viewing Center (Kaduna)</option>
                             </select>
                         </div>
-                    </div>
 
-                    <button
-                        type="submit"
-                        className="w-full bg-mandate-orange hover:bg-orange-600 text-white font-bold py-4 rounded-xl shadow-md transition flex items-center justify-center gap-2"
-                    >
-                        <Send className="w-5 h-5" /> Submit Registration
-                    </button>
-                </form>
-            )}
+                        <button
+                            type="submit"
+                            className="w-full bg-orange-500 hover:bg-orange-600 text-white font-black py-4 rounded-2xl shadow-lg transition flex items-center justify-center gap-2"
+                        >
+                            <Send size={18} /> Submit Free Registration
+                        </button>
+                    </form>
+                )}
+            </div>
         </div>
     );
 }
